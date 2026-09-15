@@ -22,6 +22,7 @@ if [[ "${RUN_DEMO_INSTALL:-true}" == "true" ]]; then
         echo "Demo database ready."
         exit 0
       fi
+      echo "Install output above — retrying…"
       echo "Demo install attempt ${attempt} failed — retrying in 10s…"
       sleep 10
     done

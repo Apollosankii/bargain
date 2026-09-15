@@ -1,5 +1,3 @@
--- Bargain demo schema (PostgreSQL). Idempotent-ish: uses IF NOT EXISTS where possible.
-
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,

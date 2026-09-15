@@ -132,13 +132,19 @@ class InstallController extends Controller
      */
     private static function splitSqlStatements(string $sql): array
     {
+        $lines = preg_split('/\R/', $sql) ?: [];
+        $lines = array_filter(
+            $lines,
+            static fn (string $line): bool => !preg_match('/^\s*--/', $line),
+        );
+        $sql = trim(implode("\n", $lines));
+
         $statements = [];
         foreach (preg_split('/;\s*\n/', $sql) as $chunk) {
             $chunk = trim($chunk);
-            if ($chunk === '' || str_starts_with($chunk, '--')) {
-                continue;
+            if ($chunk !== '') {
+                $statements[] = $chunk;
             }
-            $statements[] = $chunk;
         }
 
         return $statements;
