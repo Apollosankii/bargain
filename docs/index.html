@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bargain — Online Auction Platform</title>
+  <meta name="description" content="Full-stack auction platform built with Yii2, PHP, and PostgreSQL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0c0f;
+      --surface: #12151a;
+      --border: rgba(255,255,255,.08);
+      --text: #f2f2f2;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    h1, h2 { font-family: 'Newsreader', Georgia, serif; font-weight: 600; }
+    h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin-bottom: .5rem; }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 42rem; margin-bottom: 2rem; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+    .badge {
+      font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      padding: .35rem .75rem; border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2.5rem; }
+    a.btn {
+      display: inline-flex; align-items: center; text-decoration: none; font-weight: 600; font-size: .9rem;
+      padding: .65rem 1.15rem; border-radius: 8px; transition: opacity .15s;
+    }
+    a.btn:hover { opacity: .88; }
+    .btn-primary { background: #e2e8f0; color: #0f172a; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    section { margin-top: 2.5rem; }
+    h2 { font-size: 1.35rem; margin-bottom: 1rem; }
+    ul { padding-left: 1.2rem; color: var(--muted); }
+    li { margin-bottom: .35rem; }
+    figure {
+      margin-top: 1.25rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      background: var(--surface);
+    }
+    figcaption { padding: .75rem 1rem; font-size: .8125rem; color: var(--muted); border-top: 1px solid var(--border); }
+    img { width: 100%; display: block; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .875rem; }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="badge" style="display:inline-block;margin-bottom:1rem;">Open source portfolio project</p>
+    <h1>Bargain</h1>
+    <p class="lead">
+      A full-stack online auction platform for auctioneers, bidders, and administrators —
+      built with Yii2, PHP, and PostgreSQL.
+    </p>
+
+    <div class="badge-row">
+      <span class="badge">PHP</span>
+      <span class="badge">Yii2</span>
+      <span class="badge">PostgreSQL</span>
+      <span class="badge">Bootstrap 5</span>
+      <span class="badge">RBAC</span>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/Apollosankii/bargain">View source on GitHub</a>
+      <a class="btn btn-outline" href="https://github.com/Apollosankii/bargain#quick-start-docker">Run locally (Docker)</a>
+      <a class="btn btn-outline" href="mailto:tevinmokaya@gmail.com?subject=Bargain%20demo%20access">Request demo login</a>
+    </div>
+
+    <section>
+      <h2>What it does</h2>
+      <ul>
+        <li><strong>Auctioneers</strong> — create auctions, manage listings, subscription plans, and sales stats</li>
+        <li><strong>Bidders</strong> — browse, search, bid, track activity, and view transaction history</li>
+        <li><strong>Admins</strong> — moderate users and auctions, handle complaints &amp; support, audit log, payments</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Preview</h2>
+      <figure>
+        <img src="screenshots/admin-dashboard.png" alt="Bargain admin dashboard with sidebar navigation and quick-action cards" />
+        <figcaption>Admin console — dashboard, moderation, audit log, and payments in a unified sidebar layout.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Interactive demo</h2>
+      <p style="color:var(--muted);">
+        Bargain is a server-rendered PHP application, so it needs PHP + PostgreSQL to run interactively.
+        Clone the repo and use Docker (about 5 minutes), or email
+        <a href="mailto:tevinmokaya@gmail.com" style="color:var(--accent);">tevinmokaya@gmail.com</a>
+        for hosted demo credentials.
+      </p>
+    </section>
+
+    <footer>
+      Built by <a href="https://github.com/Apollosankii">Apollosankii</a> ·
+      <a href="https://dev-website-rosy.vercel.app/">Portfolio</a>
+    </footer>
+  </div>
+</body>
+</html>
