@@ -7,7 +7,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16+-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-green?style=flat-square)](LICENSE.md)
 
-**[Preview site](https://apollosankii.github.io/bargain/)** · **[Request demo login](mailto:tevinmokaya@gmail.com?subject=Bargain%20demo%20access)**
+**[Live demo](#live-demo)** · **[Preview site](https://apollosankii.github.io/bargain/)** · **[Deploy to Render](https://render.com/deploy?repo=https://github.com/Apollosankii/bargain)**
 
 ---
 
@@ -155,16 +155,30 @@ Serve with PHP’s built-in server or point your web server document roots to:
 
 ---
 
-## Live demo for interviewers
+## Live demo
 
-Bargain is a server-rendered PHP app and needs PHP + PostgreSQL to run interactively.
+Hosted on **Render** (free tier — may sleep after inactivity; first load can take ~1 minute).
 
-| Option | How |
-|--------|-----|
-| **Preview page** | [apollosankii.github.io/bargain](https://apollosankii.github.io/bargain/) — overview + screenshots |
-| **Run locally** | Docker quick start above (~5 minutes) |
-| **Hosted demo** | Email [tevinmokaya@gmail.com](mailto:tevinmokaya@gmail.com) for demo login credentials |
-| **Deploy yourself** | See [docs/deploy.md](docs/deploy.md) |
+| App | URL |
+|-----|-----|
+| **Public site** (bidders & auctioneers) | https://bargain-demo.onrender.com |
+| **Admin console** | https://bargain-admin.onrender.com |
+
+### Demo login credentials
+
+| Role | Email | Password |
+|------|-------|------------|
+| Admin | `demo-admin@bargain.app` | `BargainDemo2026!` |
+| Auctioneer | `demo-auctioneer@bargain.app` | `BargainDemo2026!` |
+| Bidder | `demo-bidder@bargain.app` | `BargainDemo2026!` |
+
+> After deploying, replace the URLs above with your Render service URLs if they differ.
+
+### Deploy your own instance
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Apollosankii/bargain)
+
+Or see [docs/deploy.md](docs/deploy.md) for Docker/local setup.
 
 ---
 

@@ -1,0 +1,62 @@
+# Render Blueprint — Bargain live demo
+# Deploy: https://dashboard.render.com/select-repo?type=blueprint
+# Or push this file to GitHub and connect the repo in Render.
+
+databases:
+  - name: bargain-db
+    plan: free
+    databaseName: bargain
+    user: bargain
+
+services:
+  - type: web
+    name: bargain-demo
+    runtime: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bargain-db
+          property: connectionString
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: bargain-demo
+          property: host
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: bargain-admin
+          property: host
+      - key: DEMO_USER_PASSWORD
+        value: BargainDemo2026!
+
+  - type: web
+    name: bargain-admin
+    runtime: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /site/login
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bargain-db
+          property: connectionString
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: bargain-demo
+          property: host
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: bargain-admin
+          property: host
+      - key: DEMO_USER_PASSWORD
+        value: BargainDemo2026!
