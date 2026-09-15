@@ -32,7 +32,7 @@ final class DbEnv
 
         return [
             'class' => \yii\db\Connection::class,
-            'dsn' => sprintf('pgsql:host=%s;port=%d;dbname=%s', $host, $port, $dbname),
+            'dsn' => sprintf('pgsql:host=%s;port=%d;dbname=%s;sslmode=require', $host, $port, $dbname),
             'username' => $user,
             'password' => $pass,
             'charset' => 'utf8',

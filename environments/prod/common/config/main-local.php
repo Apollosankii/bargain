@@ -2,15 +2,33 @@
 
 declare(strict_types=1);
 
-use common\config\DbEnv;
-
-$db = DbEnv::connectionConfig() ?? [
+$db = [
     'class' => \yii\db\Connection::class,
     'dsn' => 'pgsql:host=localhost;port=5432;dbname=bargain_yii',
     'username' => 'postgres',
     'password' => '',
     'charset' => 'utf8',
 ];
+
+$databaseUrl = getenv('DATABASE_URL') ?: getenv('RENDER_DATABASE_URL') ?: '';
+if ($databaseUrl !== '') {
+    $parts = parse_url($databaseUrl);
+    if ($parts !== false && !empty($parts['host']) && !empty($parts['path'])) {
+        $host = $parts['host'];
+        $port = $parts['port'] ?? 5432;
+        $dbname = ltrim($parts['path'], '/');
+        $user = rawurldecode($parts['user'] ?? '');
+        $pass = rawurldecode($parts['pass'] ?? '');
+
+        $db = [
+            'class' => \yii\db\Connection::class,
+            'dsn' => sprintf('pgsql:host=%s;port=%d;dbname=%s;sslmode=require', $host, $port, $dbname),
+            'username' => $user,
+            'password' => $pass,
+            'charset' => 'utf8',
+        ];
+    }
+}
 
 return [
     'name' => 'Bargain',

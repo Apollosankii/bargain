@@ -36,8 +36,13 @@ class InstallController extends Controller
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $hasUsers = $db->schema->getTableSchema('{{%users}}', true) !== null
-            && (int) $db->createCommand('SELECT COUNT(*) FROM {{%users}}')->queryScalar() > 0;
+        try {
+            $hasUsers = $db->schema->getTableSchema('{{%users}}', true) !== null
+                && (int) $db->createCommand('SELECT COUNT(*) FROM {{%users}}')->queryScalar() > 0;
+        } catch (\Throwable $e) {
+            $this->stdout("Database not ready yet: {$e->getMessage()}\n", Console::FG_YELLOW);
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
 
         if (!$hasUsers) {
             $this->stdout("Applying PostgreSQL schema…\n");

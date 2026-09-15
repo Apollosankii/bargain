@@ -16,7 +16,6 @@ services:
     branch: main
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: .
-    healthCheckPath: /
     envVars:
       - key: RUN_DEMO_INSTALL
         value: "true"
@@ -44,7 +43,6 @@ services:
     branch: main
     dockerfilePath: ./backend/Dockerfile
     dockerContext: .
-    healthCheckPath: /site/login
     envVars:
       - key: RUN_DEMO_INSTALL
         value: "false"
