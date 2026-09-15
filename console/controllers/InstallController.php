@@ -45,7 +45,9 @@ class InstallController extends Controller
             if ($sql === false) {
                 return ExitCode::UNSPECIFIED_ERROR;
             }
-            $db->createCommand($sql)->execute();
+            foreach (self::splitSqlStatements($sql) as $statement) {
+                $db->createCommand($statement)->execute();
+            }
         } else {
             $this->stdout("Database already has users — skipping schema bootstrap.\n");
         }
@@ -118,6 +120,23 @@ class InstallController extends Controller
         $sub->end_date = $end->format('Y-m-d');
         $sub->status = Subscription::STATUS_ACTIVE;
         $sub->save(false);
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function splitSqlStatements(string $sql): array
+    {
+        $statements = [];
+        foreach (preg_split('/;\s*\n/', $sql) as $chunk) {
+            $chunk = trim($chunk);
+            if ($chunk === '' || str_starts_with($chunk, '--')) {
+                continue;
+            }
+            $statements[] = $chunk;
+        }
+
+        return $statements;
     }
 
     private function seedDemoCatalog(): void
