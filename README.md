@@ -7,7 +7,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16+-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-green?style=flat-square)](LICENSE.md)
 
-**[Live demo](#live-demo)** · **[Preview site](https://apollosankii.github.io/bargain/)** · **[Deploy to Render](https://render.com/deploy?repo=https://github.com/Apollosankii/bargain)**
+**[Preview site](https://apollosankii.github.io/bargain/)** · **[Screenshots](#screenshots)** · **[Run locally](#quick-start)**
 
 ---
 
@@ -27,11 +27,17 @@ The app uses Yii2’s **advanced template** (separate frontend and backend appli
 
 ## Screenshots
 
-### Admin console
+Browse the full gallery on the **[GitHub Pages preview](https://apollosankii.github.io/bargain/)**.
 
-![Admin dashboard — sidebar navigation, welcome banner, and quick-action cards](docs/screenshots/admin-dashboard.png)
+| Public site | Bidder portal | Auctioneer portal |
+|-------------|---------------|-------------------|
+| ![Home — landing page with live auctions](docs/screenshots/public-home.png) | ![Bidder dashboard](docs/screenshots/bidder-dashboard.png) | ![Auctioneer dashboard](docs/screenshots/auctioneer-dashboard.png) |
 
-> More screenshots can be added under `docs/screenshots/`. See [docs/index.html](docs/index.html) for a lightweight GitHub Pages preview.
+| Admin dashboard | Platform management | Complaints |
+|-----------------|---------------------|------------|
+| ![Admin console dashboard](docs/screenshots/admin-dashboard.png) | ![Users and auctions management](docs/screenshots/admin-platform.png) | ![Complaints moderation queue](docs/screenshots/admin-complaints.png) |
+
+> Screenshots live in `docs/screenshots/`. Regenerate locally with `node scripts/capture-screenshots.mjs` (requires Playwright).
 
 ---
 
@@ -155,16 +161,9 @@ Serve with PHP’s built-in server or point your web server document roots to:
 
 ---
 
-## Live demo
+## Demo accounts (local)
 
-Hosted on **Render** (free tier — may sleep after inactivity; first load can take ~1 minute).
-
-| App | URL |
-|-----|-----|
-| **Public site** (bidders & auctioneers) | https://bargain-demo.onrender.com |
-| **Admin console** | https://bargain-admin.onrender.com |
-
-### Demo login credentials
+When running locally, seed demo users with `php yii install/demo-db` or create your own accounts.
 
 | Role | Email | Password |
 |------|-------|------------|
@@ -172,13 +171,7 @@ Hosted on **Render** (free tier — may sleep after inactivity; first load can t
 | Auctioneer | `demo-auctioneer@bargain.app` | `BargainDemo2026!` |
 | Bidder | `demo-bidder@bargain.app` | `BargainDemo2026!` |
 
-> After deploying, replace the URLs above with your Render service URLs if they differ.
-
-### Deploy your own instance
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Apollosankii/bargain)
-
-Or see [docs/deploy.md](docs/deploy.md) for Docker/local setup.
+Optional Docker / cloud deployment notes: [docs/deploy.md](docs/deploy.md).
 
 ---
 

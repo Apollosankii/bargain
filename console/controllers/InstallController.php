@@ -85,7 +85,9 @@ class InstallController extends Controller
         ];
 
         foreach ($accounts as [$first, $last, $email, $phone, $role]) {
-            $user = User::findOne(['email' => $email]) ?? new User();
+            $user = User::findOne(['email' => $email])
+                ?? User::findOne(['phone' => $phone])
+                ?? new User();
             $user->first_name = $first;
             $user->last_name = $last;
             $user->email = $email;

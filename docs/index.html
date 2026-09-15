@@ -44,8 +44,9 @@
     h2 { font-size: 1.35rem; margin-bottom: 1rem; }
     ul { padding-left: 1.2rem; color: var(--muted); }
     li { margin-bottom: .35rem; }
+    .gallery { display: grid; gap: 1.25rem; }
     figure {
-      margin-top: 1.25rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
       background: var(--surface);
     }
     figcaption { padding: .75rem 1rem; font-size: .8125rem; color: var(--muted); border-top: 1px solid var(--border); }
@@ -72,9 +73,8 @@
     </div>
 
     <div class="actions">
-      <a class="btn btn-primary" href="https://bargain-demo.onrender.com">Open live demo</a>
-      <a class="btn btn-outline" href="https://bargain-admin.onrender.com">Admin console</a>
-      <a class="btn btn-outline" href="https://github.com/Apollosankii/bargain">View source on GitHub</a>
+      <a class="btn btn-primary" href="https://github.com/Apollosankii/bargain">View source on GitHub</a>
+      <a class="btn btn-outline" href="https://github.com/Apollosankii/bargain#quick-start">Run locally</a>
     </div>
 
     <section>
@@ -87,23 +87,49 @@
     </section>
 
     <section>
-      <h2>Preview</h2>
-      <figure>
-        <img src="screenshots/admin-dashboard.png" alt="Bargain admin dashboard with sidebar navigation and quick-action cards" />
-        <figcaption>Admin console — dashboard, moderation, audit log, and payments in a unified sidebar layout.</figcaption>
-      </figure>
+      <h2>Public site</h2>
+      <div class="gallery">
+        <figure>
+          <img src="screenshots/public-home.png" alt="Bargain landing page with featured auctions" />
+          <figcaption>Home — marketing landing page with live auction listings.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/public-auction.png" alt="Auction detail page with bidding" />
+          <figcaption>Auction detail — item info, bid history, and place-bid flow.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section>
-      <h2>Demo logins</h2>
-      <p style="color:var(--muted);">
-        Use these read-only demo accounts on the live site (password for all: <code>BargainDemo2026!</code>):
-      </p>
-      <ul>
-        <li>Admin — <code>demo-admin@bargain.app</code></li>
-        <li>Auctioneer — <code>demo-auctioneer@bargain.app</code></li>
-        <li>Bidder — <code>demo-bidder@bargain.app</code></li>
-      </ul>
+      <h2>User portals</h2>
+      <div class="gallery">
+        <figure>
+          <img src="screenshots/bidder-dashboard.png" alt="Bidder dashboard" />
+          <figcaption>Bidder portal — active bids, activity, and account overview.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/auctioneer-dashboard.png" alt="Auctioneer dashboard" />
+          <figcaption>Auctioneer portal — listing management, stats, and subscription.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Admin console</h2>
+      <div class="gallery">
+        <figure>
+          <img src="screenshots/admin-dashboard.png" alt="Admin dashboard" />
+          <figcaption>Dashboard — quick actions for platform, finance, moderation, and audit.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/admin-platform.png" alt="Platform management" />
+          <figcaption>Platform management — users and auctions in one view.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/admin-complaints.png" alt="Complaints queue" />
+          <figcaption>Complaints — moderation queue with linked admin actions.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <footer>
